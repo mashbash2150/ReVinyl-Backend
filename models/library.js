@@ -10,6 +10,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+
+      //commented out before testing replication of medium article lesson
+      // Library.belongsTo(models.User, {
+      //   foreignKey: 'user_id',
+      //   as: 'user_library'
+      // }) 
+      // Library.hasMany(models.Vinyl, {
+      //   foreignKey: 'vinyl_id',
+      //   as: 'user_library'
+      // }) 
       // define association here
     }
   }
@@ -17,8 +27,22 @@ module.exports = (sequelize, DataTypes) => {
     libraryName: DataTypes.STRING,
     image: DataTypes.STRING,
     notes: DataTypes.STRING,
-    vinyl_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    vinyl_id: {
+      type:DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'vinyls',
+        key: 'id'
+      }
+    },
+    owner_id: {
+      type:DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    },
   }, {
     sequelize,
     modelName: 'Library',

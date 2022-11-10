@@ -10,10 +10,27 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+
+    Vinyl.belongsTo(models.User, {
+        as: 'owner',
+        foreignKey: 'owner_id'
+      })
+     Vinyl.belongsToMany(models.User,{
+      as:'vinyls',
+      through:models.Library,
+      foreignKey:'vinyl_id'
+     })
     }
   }
   Vinyl.init({
+    user_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    },
     title: DataTypes.STRING,
     artist: DataTypes.STRING,
     genre: DataTypes.STRING,
