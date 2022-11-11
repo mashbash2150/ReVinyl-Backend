@@ -1,32 +1,32 @@
 const { User,Vinyl, Library } = require('../models')
 const stringify = require('../utils')
 
-// const GetLibrary = async (req, res) => {
+const GetLibrary = async (req, res) => {
 
-//     try {
+    try {
 
-//       const library=await User.findAll({
-//         include:[
-//           {
-//             model:Vinyl,
-//             as:'libraries',
-//             through:{attributes:[]}
-//           }
-//         ]
-//       })
-//     //     const libraries = await Library.findByPk(req.params.library_id, {
-//     //         include: [{ model: Vinyl, as: 'vinyls', attributes: ['artist', 'genre'] }]
-//     //     })
-//     //     res.send(libraries)
-//     // } catch (error) {
-//     //     throw error
-//     stringify(library)
-//     console.log('test one', library)
-//     } catch (error) {
-//       throw error
+      const library=await User.findByPk(req.params.user_id, {
+
+        include:[
+          {
+            model:Vinyl,
+            as:'cart',
+            through:{attributes:[]}
+          }
+        ]
+      })
+    //     const libraries = await Library.findByPk(req.params.library_id, {
+    //         include: [{ model: Vinyl, as: 'vinyls', attributes: ['artist', 'genre'] }]
+    //     })
+    //     res.send(libraries)
+    // } catch (error) {
+    //     throw error
+    res.send(library)
+    } catch (error) {
+      throw error
       
-//   }
-// }
+  }
+}
 
 const GetLibraryDetails=async(req,res)=>{
   try{
@@ -49,7 +49,7 @@ const GetAllLibraries = async (req, res) => {
 
 
 module.exports={
-  // GetLibrary,
+  GetLibrary,
   GetAllLibraries,
   GetLibraryDetails
 }
