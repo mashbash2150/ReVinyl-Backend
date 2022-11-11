@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Vinyl.init({
-    user_id: {
+    owner_id: {
       type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {

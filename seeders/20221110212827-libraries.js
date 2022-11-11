@@ -10,7 +10,7 @@ module.exports = {
         image: falso.randImg(),
         notes: falso.randPhrase(),
         vinyl_id: falso.randNumber({min:1,max:20}),
-        user_id: falso.randNumber({min:1,max:20}),
+        owner_id: falso.randNumber({min:1,max:20}),
         createdAt: new Date(),
         updatedAt: new Date(),
       }

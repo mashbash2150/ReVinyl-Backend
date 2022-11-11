@@ -21,7 +21,7 @@ module.exports = {
       vinyl_id: {
         type: Sequelize.INTEGER
       },
-      user_id: {
+      owner_id: {
         type: Sequelize.INTEGER
       },
       createdAt: {

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'vinyl_id'
       })
       User.belongsToMany(models.Vinyl,{
-        as:'cart',
+        as:'libraries',
         through:models.Library,
         foreignKey:'owner_id'
       })
