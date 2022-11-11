@@ -1,0 +1,33 @@
+{
+  "name": "revinyl-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mashbash2150/ReVinyl-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mashbash2150/ReVinyl-Backend/issues"
+  },
+  "homepage": "https://github.com/mashbash2150/ReVinyl-Backend#readme",
+  "dependencies": {
+    "@ngneat/falso": "^6.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.8.0",
+    "sequelize": "^6.25.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
