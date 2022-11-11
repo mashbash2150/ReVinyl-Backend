@@ -20,9 +20,9 @@ const GetVinylDetails = async (req, res) => {
 
 const CreateVinyl = async (req, res) => {
   try {
-    let ownerId=parseInt(req.params.user_id)
+    let owner_id=parseInt(req.params.user_id)
     let vinylBody={
-      ownerId,
+      owner_id,
       ...req.body
     }
       const newVinyl = await Vinyl.create(vinylBody)
@@ -35,8 +35,12 @@ const CreateVinyl = async (req, res) => {
 
 const UpdateVinyl = async (req, res) => {
   try {
-      const vinyls = await Vinyl.findAll()
-      res.send(vinyls)
+    let vinylId=parseInt(req.params.vinyl_id)
+    let updatedVinyl=await Vinyl.update(req.body,{
+      where:{id:vinylId},
+      returning:true
+    })
+    res.send(updatedVinyl)
   } catch (error) {
       throw error
   } 
@@ -44,8 +48,9 @@ const UpdateVinyl = async (req, res) => {
 
 const DeleteVinyl = async (req, res) => {
   try {
-      const vinyls = await Vinyl.findAll()
-      res.send(vinyls)
+    let vinylId=parseInt(req.params.vinyl_id)
+    await Vinyl.destroy({where:{id:vinylId}})
+      res.send({message:`Deleted Vinyl with id of ${vinylId}`})
   } catch (error) {
       throw error
   } 
