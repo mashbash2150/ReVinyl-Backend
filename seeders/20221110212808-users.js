@@ -6,7 +6,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     const users = [...Array(20)].map((_) => {
       return {
-        username: falso.randUser({length:6}),
+        username: falso.randUserName(),
         email: falso.randEmail(),
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -21,7 +21,8 @@ module.exports = {
      * Add commands to revert seed here.
      *
      * Example:
-     * await queryInterface.bulkDelete('People', null, {});
+    //  * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('users');
   }
 };

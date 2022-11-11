@@ -4,9 +4,9 @@ const falso = require('@ngneat/falso')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const users = [...Array(20)].map((_) => {
+    const libraries = [...Array(20)].map((_) => {
       return {
-        libraryName: falso.randName({length:6, capitalize:true}),
+        libraryName: falso.randFirstName({ capitalize:true}),
         image: falso.randImg(),
         notes: falso.randPhrase(),
         vinyl_id: falso.randNumber({min:1,max:20}),
@@ -15,7 +15,7 @@ module.exports = {
         updatedAt: new Date(),
       }
     })
-    await queryInterface.bulkInsert('libraries', libraries)
+    await queryInterface.bulkInsert('libraries',libraries)
   },
 
   async down (queryInterface, Sequelize) {
@@ -25,5 +25,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+     await queryInterface.bulkDelete('libraries');
   }
 };

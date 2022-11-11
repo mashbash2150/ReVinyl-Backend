@@ -4,14 +4,14 @@ const falso = require('@ngneat/falso')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const users = [...Array(20)].map((_) => {
+    const vinyls = [...Array(20)].map((_) => {
       return {
         owner_id:  falso.randNumber({min:1,max:20}),
-        title: falso.randWord({length:8}),
+        title: falso.randWord(),
         artist: falso.randSinger(),
         genre: falso.randMusicGenre(),
-        published: falso.randWord({length:8}),
-        rarity: falso.randWord({length:8}),
+        published: falso.randWord(),
+        rarity: falso.randNumber({min:1,max:10}),
         image: falso.randImg(),
         price: falso.randNumber({min:1,max:50}),
         description: falso.randWord(),
@@ -31,5 +31,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+     await queryInterface.bulkDelete('vinyls');
   }
 };
