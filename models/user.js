@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define assoUciation here
      User.hasMany(models.Vinyl, {
         as: 'owner',
-        foreignKey: 'vinyl_id'
+        // foreignKey: 'vinyl_id'
+        foreignKey: 'id'
       })
       User.belongsToMany(models.Vinyl,{
         as:'libraries',
