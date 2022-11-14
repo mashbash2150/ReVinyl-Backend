@@ -4,16 +4,13 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Vinyl extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+
     static associate(models) {
 
     Vinyl.belongsTo(models.User, {
         as: 'owner',
         foreignKey: 'owner_id'
+ 
       })
      Vinyl.belongsToMany(models.User,{
       as:'vinyls',
@@ -23,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Vinyl.init({
-    user_id: {
+    owner_id: {
       type: DataTypes.INTEGER,
       onDelete: 'CASCADE',
       references: {

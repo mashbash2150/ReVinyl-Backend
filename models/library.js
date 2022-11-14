@@ -24,9 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Library.init({
-    libraryName: DataTypes.STRING,
-    image: DataTypes.STRING,
-    notes: DataTypes.STRING,
+    // libraryName: DataTypes.STRING,
+    // image: DataTypes.STRING,
+    // notes: DataTypes.STRING,
     vinyl_id: {
       type:DataTypes.INTEGER,
       onDelete: 'CASCADE',
