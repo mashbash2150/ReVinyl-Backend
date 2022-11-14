@@ -1,7 +1,8 @@
-// const Router = require('express').Router()
-// const controller = require('../controllers/UserController')
+const Router = require('express').Router()
+const controller = require('../controllers/AuthController')
 
-// Router.get('/', controller.GetProfiles)
-// Router.get('/:user_id', controller.GetUserProfile)
+Router.post('/login', controller.Login)
+Router.post('/register',controller.Register)
 
-// module.exports = Router
+
+module.exports = Router
