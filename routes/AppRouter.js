@@ -1,5 +1,5 @@
 const Router = require('express').Router()
-const UserRouter = require('./AuthRouter')
+const AuthRouter = require('./AuthRouter')
 const VinylRouter = require('./VinylRouter')
 const LibraryRouter = require('./LibraryRouter')
 Router.use('/', AuthRouter)
