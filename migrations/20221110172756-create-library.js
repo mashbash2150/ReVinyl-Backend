@@ -9,15 +9,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      libraryName: {
-        type: Sequelize.STRING
-      },
-      image: {
-        type: Sequelize.STRING
-      },
-      notes: {
-        type: Sequelize.STRING
-      },
+      // libraryName: {
+      //   type: Sequelize.STRING
+      // },
+      // image: {
+      //   type: Sequelize.STRING
+      // },
+      // notes: {
+      //   type: Sequelize.STRING
+      // },
       vinyl_id: {
         type: Sequelize.INTEGER
       },

@@ -48,30 +48,27 @@ const GetAllLibraries = async (req, res) => {
   }
 }
 
-// const UpdateLibrary = async (req, res) => {
-//   try {
-//     let libraryId = parseInt(req.params.library_id);
-//     // let vinylId = parseInt(req.params.vinyl_id);
-//     // let body = {
-//     //   vinylId,
-//     //   libraryId,
-//     //   ...req.body
-//     // }
-//     let updatedLibrary = await Library.update(req.body, {
-//       where: { id: libraryId },
-//       returning: true
-//     });
-//     res.send(updatedLibrary);
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+const AddToLibrary = async (req, res) => {
+  try {
+    let owner_id= parseInt(req.params.owner_id);
+    let vinyl_id = parseInt(req.params.vinyl_id);
+    let body = {
+      vinyl_id,
+      owner_id,
+      ...req.body
+    }
+    let newEntry = await Library.create(body)
+    res.send(newEntry);
+  } catch (error) {
+    throw error;
+  }
+};
 
 
 module.exports={
   GetLibrary,
   GetAllLibraries,
   GetLibraryDetails,
-  // UpdateLibrary
+  AddToLibrary
 }
 
