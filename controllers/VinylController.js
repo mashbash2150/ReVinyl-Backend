@@ -20,7 +20,7 @@ const GetVinylDetails = async (req, res) => {
 
 const GetUserVinyls=async(req,res)=>{
   try {
-    let ownerId= parseInt(req.params.owner_id);
+    let ownerId= parseInt(req.params.user_id);
     const vinyls = await Vinyl.findAll({where:{owner_id:ownerId}})
     res.send(vinyls)
   } catch (error) {
