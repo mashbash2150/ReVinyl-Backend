@@ -64,11 +64,23 @@ const AddToLibrary = async (req, res) => {
   }
 };
 
+const DeleteFromLibrary = async (req, res) => {
+  try {
+    let ownerId= parseInt(req.params.owner_id);
+    let vinylId = parseInt(req.params.vinyl_id);
+    await Library.destroy({where:{owner_id:ownerId,vinyl_id:vinylId}})
+    res.send({message:`Deleted vinyl id ${vinylId} from user ${ownerId}'s library`})
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 module.exports={
   GetLibrary,
   GetAllLibraries,
   GetLibraryDetails,
-  AddToLibrary
+  AddToLibrary,
+  DeleteFromLibrary
 }
 
