@@ -18,6 +18,19 @@ const GetVinylDetails = async (req, res) => {
   } 
 }
 
+const GetUserVinyls=async(req,res)=>{
+  try {
+    let ownerId= parseInt(req.params.owner_id);
+    const vinyls = await Vinyl.findAll({where:{owner_id:ownerId}})
+    res.send(vinyls)
+  } catch (error) {
+    throw error
+  } 
+  }
+
+
+
+
 const CreateVinyl = async (req, res) => {
   try {
     let owner_id=parseInt(req.params.user_id)
@@ -59,6 +72,7 @@ const DeleteVinyl = async (req, res) => {
 module.exports = {
     GetAllVinyls,
     GetVinylDetails,
+    GetUserVinyls,
     CreateVinyl,
     UpdateVinyl,
     DeleteVinyl
