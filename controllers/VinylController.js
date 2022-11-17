@@ -28,7 +28,33 @@ const GetUserVinyls=async(req,res)=>{
   } 
   }
 
+  const GetSelling=async(req,res)=>{
+    try {
+      const vinyls = await Vinyl.findAll({where:{status:'sell'}})
+      res.send(vinyls)
+    } catch (error) {
+      throw error
+    } 
+    }
 
+    const GetTrading=async(req,res)=>{
+      try {
+        const vinyls = await Vinyl.findAll({where:{status:'trade'}})
+        res.send(vinyls)
+      } catch (error) {
+        throw error
+      } 
+      }
+
+
+      const GetWanted=async(req,res)=>{
+        try {
+          const vinyls = await Vinyl.findAll({where:{status:"buy"}})
+          res.send(vinyls)
+        } catch (error) {
+          throw error
+        } 
+        }
 
 
 const CreateVinyl = async (req, res) => {
@@ -73,6 +99,9 @@ module.exports = {
     GetAllVinyls,
     GetVinylDetails,
     GetUserVinyls,
+    GetSelling,
+    GetTrading,
+    GetWanted,
     CreateVinyl,
     UpdateVinyl,
     DeleteVinyl
