@@ -30,7 +30,7 @@ const GetUserVinyls=async(req,res)=>{
 
   const GetSelling=async(req,res)=>{
     try {
-      const vinyls = await Vinyl.findAll({where:{status:'sell'}})
+      const vinyls = await Vinyl.findAll({where:{status:'Sell'}})
       res.send(vinyls)
     } catch (error) {
       throw error
@@ -39,7 +39,7 @@ const GetUserVinyls=async(req,res)=>{
 
     const GetTrading=async(req,res)=>{
       try {
-        const vinyls = await Vinyl.findAll({where:{status:'trade'}})
+        const vinyls = await Vinyl.findAll({where:{status:'Trade'}})
         res.send(vinyls)
       } catch (error) {
         throw error
@@ -49,7 +49,7 @@ const GetUserVinyls=async(req,res)=>{
 
       const GetWanted=async(req,res)=>{
         try {
-          const vinyls = await Vinyl.findAll({where:{status:"buy"}})
+          const vinyls = await Vinyl.findAll({where:{status:"Buy"}})
           res.send(vinyls)
         } catch (error) {
           throw error
