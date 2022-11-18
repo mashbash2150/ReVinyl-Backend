@@ -16,23 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         through:models.Library,
         foreignKey:'owner_id'
       })
-
-
-
-
-
-      //commmented out before trying to replicate medium article lesson
-      // User.hasOne(models.Library,{
-      //   foreignKey: 'library_id',
-      //   as:'library',
-      //   onDelete:'CASCADE'
-      // })
-
-      //Deleted after deciding library would be the join table.  User has many vinyl VIA library
-      // User.hasMany(models.Vinyl,{
-      //   foreignKey: 'vinyl_id',
-      //   as:'vinyl'
-      // })
     }
   }
   User.init({

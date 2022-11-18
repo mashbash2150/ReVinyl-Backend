@@ -11,5 +11,5 @@ Router.get('/status/wanted',controller.GetWanted)
 Router.post('/create/:user_id',controller.CreateVinyl)
 Router.put('/:vinyl_id',controller.UpdateVinyl)
 Router.delete('/:vinyl_id',controller.DeleteVinyl)
-// Implement these routes
+
 module.exports = Router
